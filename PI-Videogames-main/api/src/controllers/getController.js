@@ -5,16 +5,21 @@ require("dotenv").config();
 const { API_KEY } = process.env;
 
 //!SECTION Get all Video Game de la API
-const getAllVideogames = async () => {
-  const response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=100`);
-
-  return response.data.results.map(({ name, platforms, background_image, released, rating }) => ({
-    name,
-    platforms,
-    background_image,
-    released,
-    rating,
-  }));
+const getAllVideogames = async (req, res) => {
+  try {
+    const response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=10`);
+    const videogames = response.data.results.map(({ name, platforms, background_image, released, rating }) => ({
+      name,
+      platforms: platforms.map(platform => platform.platform.name),
+      background_image,
+      released,
+      rating,
+    }));
+    res.status(200).send(videogames);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: 'No encontró videogames' });
+  }
 };
 
 //!SECTION get DB
@@ -31,13 +36,19 @@ const getDbVideogames = async () => {
 };
 
 //!SECTION obtiene info de la API y de la BD
-const getVideogameById = async () => {
-  const apiInfo = await getAllVideogames();
-  const dbInfo = await getDbVideogames();
-
-  return apiInfo.concat(dbInfo);
+const getVideogameById = async (req, res) => {
+  try {
+    const apiInfo = await getAllVideogames();
+    const dbInfo = await getDbVideogames();
+    const videogames = apiInfo.concat(dbInfo);
+    res.status(200).send(videogames);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: 'Error al obtener los videojuegos' });
+  }
 };
 
+//!SECTION obtiene info por nombre.
 const getVideogamesByName = async (req, res) => {
   const name = req.query.name;
   const videogamesTotal = await getVideogameById();
@@ -51,6 +62,8 @@ const getVideogamesByName = async (req, res) => {
   res.status(200).send(videogamesTotal);
 };
 
+
+//!SECTION Obtiene info de genres
 const getGenres = async (req, res) => {
   try {
     // Busca los géneros en la base de datos
