@@ -4,12 +4,14 @@ import styles from "../LandingPage/LandingPage.module.css";
 
 export default function LandingPage() {
   return (
-    <div>
+    <div className={styles.app}>
       <h1 className={styles.title}>LET'S PLAY!</h1>
+      <p className={styles.emoji}>
+        👾 Bienvenidos a mi PROYECTO INDIVIDUAL de HENRY 👾
+      </p>
       <Link to="/home">
-        <button className={styles.button}>START</button>
+        <button className={styles.btnStart}>Empezar</button>
       </Link>
-      <p className={styles.emoji}>👾Bienvenidos a mi PROYECTO INDIVIDUAL de HENRY👾</p>
     </div>
   );
 }

@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+
+  
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../../asset/sigmund-By-tZImt0Ms-unsplash.jpg");
+    background-size: cover;
+    background-position: center center;
+    justify-content: center;
+    height: auto;
+    width: 100vw;
+    padding-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+background-position: center center;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+
+  }
+  
+  .container:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  }
+  
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  background-color: #7cb342;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:hover {
+  background-color: #6b9e3c;
+}
+
+.title {
+    color:  #c5e1a5;
+    font-size: 5.2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 12px 12px 24px rgba(0, 0, 0, 0.3);
+    border: 5px solid #c5e1a5;
+   
+}
+
+
+  
+
+.button {
+  background-color: #7cb342;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #6b9e3c;
+}
+
+.select {
+  font-size: 1.2rem;
+  margin: 10 10px;
+  padding: 5px;
+  border: 1px solid #7cb342;
+  border-radius: 5px;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardInfo {
+  padding: 10px;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #7cb342;
+  margin-bottom: 10px;
+}
+
+.cardGenres {
+  font-size: 1.2rem;
+  color: #2b2d42;
+  margin-bottom: 10px;
+}
+
+.cardButton {
+  background-color: #7cb342;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.cardButton:hover {
+  background-color: #6b9e3c;
+}
+
+/* Selects */
+
+.select {
+    margin: 0 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #7cb342;
+    background-color: #f2f2f2;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #2b2d42;
+    cursor: pointer;
+  }
+  
+  /* Cards */
+  
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+  
+  .cardImage {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+  }
+  .cardTitle {
+    margin-top: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2b2d42;
+    text-align: center;
+  }
+  
+  .cardGenres {
+    margin-top: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #7cb342;
+    text-align: center;
+  }
+  
+  /* Links */
+  
+  .link {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #7cb342;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .link:hover {
+    background-color: #2b2d42;
+  }
+  
+  /* Buttons */
+  
+  .button {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #7cb342;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #2b2d42;
+  }
+  
+  /* Container */
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 1rem;
+  }
+  
+.prueba {
+    background-color: red;
+}

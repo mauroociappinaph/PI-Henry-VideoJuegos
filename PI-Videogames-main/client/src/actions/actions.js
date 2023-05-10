@@ -11,3 +11,4 @@ export function getVideogames() {
     });
   };
 }
+console.log(getVideogames);
