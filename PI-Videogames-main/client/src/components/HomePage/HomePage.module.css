@@ -2,6 +2,9 @@
 
 
   
+* {
+  overflow-x: hidden;
+}
 
 .container {
     display: flex;
@@ -13,15 +16,17 @@
     justify-content: center;
     height: auto;
     width: 100vw;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 2rem;; 
     font-family: 'Montserrat', sans-serif;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background-size: cover;
-background-position: center center;
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 
   }
   
@@ -48,7 +53,7 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 
 .title {
     color:  #c5e1a5;
-    font-size: 5.2rem;
+    font-size: 4.2rem;
     font-weight: 900;
     text-align: center;
     margin-bottom: 10px;
@@ -133,18 +138,29 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 
 /* Selects */
 
+.selectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .select {
-    margin: 0 1rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #7cb342;
-    background-color: #f2f2f2;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    color: #2b2d42;
-    cursor: pointer;
-  }
+  width: 200px;
+  max-width: 100%;
+  margin: 0 1rem;
+  padding: .5rem;
+  border-radius: 5px;
+  border: 1px solid #7cb342;
+  background-color: #f2f2f2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #2b2d42;
+  cursor: pointer;
+  
+}
+
   
   /* Cards */
   
@@ -229,6 +245,14 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     padding: 1rem;
   }
   
-.prueba {
-    background-color: red;
-}
+  .prueba {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

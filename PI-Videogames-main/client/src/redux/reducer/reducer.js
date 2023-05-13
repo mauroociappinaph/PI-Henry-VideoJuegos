@@ -9,6 +9,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         videogames: action.payload,
       };
+
     default:
       return state;
   }

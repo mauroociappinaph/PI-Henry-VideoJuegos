@@ -1,0 +1,37 @@
+.paginado {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    background-color: #333;
+  }
+  
+  .paginadoNav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .paginadoUl {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .paginadoLi {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+  }
+  
+  .paginadoLi a {
+    text-decoration: none;
+    color: green;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  
