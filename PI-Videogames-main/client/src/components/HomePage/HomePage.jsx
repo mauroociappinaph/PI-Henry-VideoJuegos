@@ -5,13 +5,16 @@ import { getVideogames } from "../../redux/actions/actions";
 import { Link } from "react-router-dom";
 import Card from "../ExtraPage/Card/Card";
 import Paginado from "../ExtraPage/Paginado/Paginado";
+import SearchBar from "../ExtraPage/SearchBar/SearchBar";
 import styles from "./HomePage.module.css";
 
 //TODO  - Function HomePage
 export default function HomePage() {
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
- 
+
+  //SECTION - BARRA DE BÚSQUEDA
+
   console.log("Cantidad de elementos: ", allVideogames.length); // Agregar esta línea
 
   //SECTION - Paginado
@@ -23,9 +26,6 @@ export default function HomePage() {
     indexOfFirstVideogames,
     indexOfLastVideogames
   );
-
- 
-
 
   // Para comprobar que la longitud es correcta:
   console.log(currentVideogames.length);
@@ -94,6 +94,7 @@ export default function HomePage() {
             allVideogames={allVideogames.length}
             paginado={paginado}
           />
+          <SearchBar />
         </div>
         <div className={styles.prueba}>
           {Object.keys(currentVideogames).length ? (
@@ -103,7 +104,7 @@ export default function HomePage() {
                   key={videogames.id}
                   id={videogames.id}
                   name={videogames.name}
-                  genre={videogames.genre}
+                  genres={videogames.genres}
                   background_image={videogames.background_image}
                 />
               );
@@ -118,4 +119,3 @@ export default function HomePage() {
     </div>
   );
 }
-

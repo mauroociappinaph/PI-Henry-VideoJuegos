@@ -7,12 +7,12 @@ const { API_KEY } = process.env;
 const getAllVideogames = async (req, res) => {
   try {
     const response = await axios.get(
-      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=10`
+      `https://api.rawg.io/api/games?key=${API_KEY}&page_size=100`
     );
     const videogames = response.data.results.map(
       ({ name, genres, platforms, background_image, released, rating }) => ({
         name,
-        genres: genres.map(( genres) => genres.name),
+        genres: genres.map((genres) => genres.name),
         platforms: platforms.map((platform) => platform.platform.name),
         background_image,
         released,
@@ -54,7 +54,7 @@ const getVideogameById = async (req, res) => {
       released: game.released,
       rating: game.rating,
       platforms: game.platforms.map((element) => element.platform.name),
-      genres: game.genres.map((genre) => genre.name),
+      genres: game.genres.map((genres) => genres.name),
     };
     res.status(200).json(gameDetail);
   } catch (error) {
@@ -62,9 +62,6 @@ const getVideogameById = async (req, res) => {
   }
 };
 
-
-
-//!SECTION obtiene info por nombre.
 //!SECTION obtiene info por nombre.
 const getVideogamesByName = async (req, res) => {
   const name = req.query.name;
@@ -82,7 +79,6 @@ const getVideogamesByName = async (req, res) => {
 
   res.status(200).send(videogamesTotal);
 };
-
 
 //!SECTION Obtiene info de genres
 const getGenres = async (req, res) => {
