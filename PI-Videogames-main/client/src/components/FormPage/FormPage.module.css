@@ -1,0 +1,92 @@
+/* FormPage.module.css */
+
+.formContainer {
+  /* Estilos para el contenedor del formulario */
+}
+
+.page {
+  /* Estilos para la página del formulario */
+}
+
+.form {
+  /* Estilos para el formulario */
+}
+
+.asterisco {
+  /* Estilos para el asterisco */
+  color: red;
+}
+
+.select {
+  /* Estilos para el elemento select */
+  margin-bottom: 12px;
+}
+
+.textDescription {
+  /* Estilos para el campo de descripción */
+  resize: vertical;
+}
+
+.enviar {
+  /* Estilos para el botón de enviar */
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #7cb342; /* Verde claro */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.enviar:hover {
+  background-color: #689f38; /* Verde oscuro al pasar el mouse */
+}
+
+.error {
+  /* Estilos para el mensaje de error */
+  color: red;
+  margin-top: 8px;
+}
+
+.label {
+  /* Estilos para las etiquetas de los campos */
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.input {
+  /* Estilos para los campos de entrada de texto */
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.option {
+  /* Estilos para las opciones del elemento select */
+}
+
+.genreItem {
+  /* Estilos para los elementos de género seleccionados */
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  padding: 2px 4px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.deleteButton {
+  /* Estilos para el botón de eliminar género o plataforma */
+  margin-left: 4px;
+  padding: 2px 4px;
+  background-color: #e53935; /* Rojo claro */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.description {
+  /* Estilos para el campo de descripción */
+  margin-bottom: 8px;
+  padding: 4px;
+  height: 100px;
+}

@@ -1,17 +1,23 @@
+/* App.css */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
-html {
-  height: 100%;
-}
+
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
   margin: 0;
   padding: 0;
   background-image: url('../../client/asset/luis-villasmil-ITFwHdPEED0-unsplash.jpg');
   background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+ 
+
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   background-size: cover;
 }

@@ -1,0 +1,45 @@
+.containerNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-color: #fff ; /* Verde claro */
+}
+
+.linkH2  {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #7cb342
+}
+
+.containerButton {
+  display: flex;
+  gap: 16px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.link {
+  text-decoration: none;
+  color: #7cb342;
+}
+
+.div {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: rgba(234, 234, 234, 0.2); /* Gris claro */
+}
+
+.div:hover {
+  background-color: rgba(234, 234, 234, 0.3); /* Gris claro con mayor transparencia */
+}

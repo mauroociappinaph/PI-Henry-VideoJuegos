@@ -4,16 +4,14 @@ html {
   height: 100%;
 }
 
-body {
+.landingPageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url('../../../asset/luis-villasmil-ITFwHdPEED0-unsplash.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .title {
@@ -33,8 +31,6 @@ body {
   animation-timing-function: ease-in-out;
   text-align: center;
 }
-
-
 
 .btnStart {
   font-family: 'Montserrat', sans-serif;
