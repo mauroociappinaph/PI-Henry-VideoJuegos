@@ -39,7 +39,7 @@ const HomePage = () => {
   useEffect(() => {
     if (videogames.length === 0) {
       dispatch(getAllVideogames()).catch((error) => {
-        setError("Error loading videogames. Please try again later.");
+        setError("Error en cargar videogames. Por favor intentar nuevamente.");
       });
     }
   }, [dispatch, videogames]);
@@ -86,7 +86,7 @@ const HomePage = () => {
             <input
               id="search"
               type="search"
-              placeholder="Videogame Name..."
+              placeholder="NOMBRE"
               onChange={(e) => handleOnSearch(e)}
               className="bars"
             />
@@ -98,8 +98,8 @@ const HomePage = () => {
             <FilterOrigin setPage={setPage} />
           </div>
           <div className={styles.items}>
-            <div className={styles.titles}>Orders</div>
-            <span>Name</span>
+            <div className={styles.titles}>ORDENAR</div>
+            <span>NOMBRE</span>
             <div className={styles.order}>
               <label htmlFor="asc" className={styles.input}>
                 <input
@@ -122,7 +122,7 @@ const HomePage = () => {
                 Z - A
               </label>
             </div>
-            <span>Rating</span>
+            <span>RATING</span>
             <div className={styles.order}>
               <label htmlFor="up">
                 <input
@@ -132,7 +132,7 @@ const HomePage = () => {
                   checked={orderRating === "up"}
                   onChange={(e) => handleOrderRating(e)}
                 />
-                Ascending
+                ASCENDENTE
               </label>
               <label htmlFor="down">
                 <input
@@ -142,7 +142,7 @@ const HomePage = () => {
                   checked={orderRating === "down"}
                   onChange={(e) => handleOrderRating(e)}
                 />
-                Descending
+                DECENDENTE
               </label>
             </div>
           </div>

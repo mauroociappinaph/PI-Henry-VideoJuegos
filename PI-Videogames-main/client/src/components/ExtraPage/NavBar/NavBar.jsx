@@ -8,8 +8,13 @@ const NavBar = () => {
       <nav className={styles.containerNav}>
         <div className={styles.containerButton}>
           <button className={styles.button}>
+            <NavLink to="/" className={styles.link}>
+              <div className={styles.linkH2}> INICIO</div>
+            </NavLink>
+          </button>
+          <button className={styles.button}>
             <NavLink to="/home" className={styles.link}>
-              <div className={styles.linkH2}> HOME</div>
+              <div className={styles.linkH2}> HOME </div>
             </NavLink>
           </button>
           <button className={styles.button}>

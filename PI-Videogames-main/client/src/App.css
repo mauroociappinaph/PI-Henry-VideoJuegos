@@ -7,10 +7,12 @@ body {
   margin: 0;
   padding: 0;
   background-image: url('../../client/asset/luis-villasmil-ITFwHdPEED0-unsplash.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 100vw;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
  
 
 }
@@ -20,4 +22,5 @@ body {
   display: flex;
   justify-content: center;
   background-size: cover;
+  box-sizing: border-box;
 }

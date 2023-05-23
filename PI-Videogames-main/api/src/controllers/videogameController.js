@@ -19,6 +19,7 @@ const getAllVideogames = async () => {
           genres: game.genres.map((genre) => genre.name),
           platforms: game.platforms.map((element) => element.platform.name),
           rating: game.rating,
+          create: false,
         };
       });
       return formatVideogames;

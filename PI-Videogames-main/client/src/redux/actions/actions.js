@@ -77,12 +77,17 @@ export const postVideogame = (form) => {
 
 export const getAllPlatforms = () => {
   return async function (dispatch) {
-    return api
-      .get("/platforms")
-      .then((json) => json.data)
-      .then((data) => dispatch({ type: GET_ALL_PLATFORMS, data }));
+    try {
+      const json = await api.get("/platforms");
+      const data = json.data;
+      return dispatch({ type: GET_ALL_PLATFORMS, payload: data });
+    } catch (error) {
+      // Manejo de errores
+      console.error("Error retrieving platforms:", error);
+    }
   };
 };
+
 
 export const filterByGenres = (filter) => {
   return function (dispatch) {

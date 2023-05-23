@@ -40,7 +40,7 @@ const {
         background_image: image,
         released,
         rating,
-        created: true,
+        create: true,
       };
       let game = await Videogame.create(formatGame);
       let generos = await Genre.findAll({ where: { name: genres } });

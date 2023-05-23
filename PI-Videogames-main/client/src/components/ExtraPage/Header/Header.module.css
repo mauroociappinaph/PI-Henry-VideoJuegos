@@ -1,16 +1,15 @@
 .header {
     background-image: url('../../../../asset/sigmund-By-tZImt0Ms-unsplash.jpg');
     background-repeat: no-repeat;
-    width: 100vw;
-   
     background-size: cover;
     padding: 20px;
     text-align: center;
+   
   }
   
   .title {
     font-size: 4rem;
     color: #ffffff;
-    margin-bottom: 10px;
+  
   }
   

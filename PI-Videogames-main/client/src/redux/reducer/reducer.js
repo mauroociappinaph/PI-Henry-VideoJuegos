@@ -68,15 +68,16 @@ const reducer = (state = initialState, action) => {
         videogamesAux: filterGenresVideogames,
       };
     case FILTER_BY_ORIGIN:
-      const filterVideogame = videogamesAux.filter((game) => {
-        if (action.payload === "db") {
-          return typeof game.id === "string";
-        }
-        if (action.payload === "api") {
-          return typeof game.id === "number";
-        }
-        return true;
-      });
+      const filterVideogame = 
+      action.payload === "db"
+      ? videogamesAux.filter( (game) => {
+        if( typeof game.id == "string" )
+        return game.id;
+      }) 
+      : videogamesAux.filter((game) => {
+        if( typeof game.id == "number")
+        return game.id;
+      })
       return {
         ...state,
         videogamesAux: filterVideogame,

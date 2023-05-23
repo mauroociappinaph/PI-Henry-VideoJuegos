@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./Card.module.css";
 
-const Card = ({ name, background_image, genre }) => {
+const Card = ({ id, name, background_image, genre }) => {
   const [showInfo, setShowInfo] = useState(false);
+  const history = useHistory();
+
+  const handleCardClick = () => {
+    history.push(`/detail/${id}`);
+  };
 
   return (
     <div className={styles.cardContainer}>
@@ -13,6 +19,7 @@ const Card = ({ name, background_image, genre }) => {
           }`}
           src={background_image}
           alt={name}
+          onClick={handleCardClick}
           onMouseEnter={() => setShowInfo(true)}
           onMouseLeave={() => setShowInfo(false)}
           onTouchStart={() => setShowInfo(true)}
