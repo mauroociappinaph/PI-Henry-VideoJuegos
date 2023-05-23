@@ -30,12 +30,11 @@
 }
 
 .search {
-  /* Estilos para la búsqueda */
-  
-  
   padding: 8px;
   border: 1px solid gray;
   border-radius: 4px;
+  width: 100%;
+  margin-top: 8px;
 }
 
 .bars {
@@ -54,14 +53,12 @@
 
 .items {
   margin-top: 24px;
-  
- 
 }
 
 .order {
   display: flex;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-top: 8px;
 }
 
@@ -78,11 +75,9 @@ align-items: center;
 
 .paging {
   display: flex;
- align-items: center;
+  align-items: center;
   justify-content: center;
 }
-
-
 
 .font {
   margin: 0 8px;
@@ -98,25 +93,21 @@ align-items: center;
   background-color: lightgray;
 }
 
-
 .pageNumberTop {
   margin-bottom: 16px;
   font-size: 16px;
-  color: white; /* Gris oscuro */
+  color: white;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 16px;
- 
 }
-
 
 .container > :last-child {
   margin-bottom: 0;
 }
-
 
 .all {
   display: flex;

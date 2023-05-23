@@ -8,7 +8,7 @@ import {
 } from "../../../redux/actions/actions";
 
 import styles from "./FormPage.module.css";
-import NavBar from "../../ExtraPage/NavBar/NavBar";
+import Header from "../../ExtraPage/Header/Header";
 
 const FormPage = () => {
   const history = useHistory();
@@ -18,7 +18,7 @@ const FormPage = () => {
     name: "",
     image: "",
     description: "",
-    plataforms: "",
+    platforms: "",
     released: "",
     rating: 0,
     genres: [],
@@ -27,7 +27,7 @@ const FormPage = () => {
     name: "",
     image: "",
     description: "",
-    plataforms: "",
+    platforms: "",
     released: "",
     rating: 0,
     genres: [],
@@ -39,8 +39,7 @@ const FormPage = () => {
     dispatch(getAllPlatforms());
   }, [dispatch]);
 
-  //NOTE - Hanndleres
-  const handlerChange = (e) => {
+  const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setForm({
@@ -49,7 +48,7 @@ const FormPage = () => {
     });
   };
 
-  const handlerGenres = (e) => {
+  const handleGenres = (e) => {
     e.preventDefault();
     setForm({
       ...form,
@@ -57,7 +56,7 @@ const FormPage = () => {
     });
   };
 
-  const handleOnSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       dispatch(postVideogame(form));
@@ -65,11 +64,11 @@ const FormPage = () => {
         name: "",
         image: "",
         description: "",
-        plataforms: "",
+        platforms: "",
         released: "",
         rating: 0,
         genres: [],
-      })
+      });
       history.push("/home");
     }
   };
@@ -103,102 +102,137 @@ const FormPage = () => {
   };
 
   return (
-    <>
-      <NavBar />
-      <div className={styles.formContainer}></div>
-      <div className={styles.page}>
-        {formLoading ? (
-          <div className={styles.loader}>
-            <div className={styles.progressBar}></div>
-          </div>
-        ) : (
-          <form onSubmit={handleOnSubmit} className={styles.form}>
-            <div>
-              <label className={form.label}>NAME:</label>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={(e) => handlerChange(e)}
-                className={form.input}
-              />
-              {error && <span className="error">{error.name}</span>}
-              <span className={error ? "error" : ""}>*</span>
+    <div className={styles.containerForm}>
+      <Header />
+      <div className={styles.formContainer}>
+        <div className={styles.page}>
+          {formLoading ? (
+            <div className={styles.loader}>
+              <div className={styles.progressBar}></div>
             </div>
-            <div>
-              <label className={form.label}>IMAGE</label>
-              <input
-                type="text"
-                name="image"
-                value={form.image}
-                onChange={(e) => handlerChange(e)}
-                className={form.input}
-              />
-              {error && <span className="error">{error.image}</span>}
-              <span className={error ? "error" : ""}>*</span>
-            </div>
-            <div>
-              <label className={form.label}>DESCRIPTION:</label>
-              <input
-                type="text"
-                name="description"
-                value={form.description}
-                onChange={(e) => handlerChange(e)}
-                className={form.input}
-              />
-              {error && <span className="error">{error.description}</span>}
-              <span className={error ? "error" : ""}>*</span>
-            </div>
-            <div>
-              <label className={form.label}>PLATAFORMS:</label>
-              <input
-                type="text"
-                name="plataforms"
-                value={form.plataforms}
-                onChange={(e) => handlerChange(e)}
-                className={form.input}
-              />
-              {error && <span className="error">{error.plataforms}</span>}
-              <span className={error ? "error" : ""}>*</span>
-            </div>
-            <div>
-              <label className={form.label}>RELEASED:</label>
-              <input
-                type="text"
-                name="released"
-                value={form.released}
-                onChange={(e) => handlerChange(e)}
-                className={form.input}
-              />
-              {error && <span className="error">{error.released}</span>}
-              <span className={error ? "error" : ""}>*</span>
-            </div>
-            <div>
-              <label className={form.label}>RATING:</label>
-              <input
-                type="text"
-                name="rating"
-                value={form.rating}
-                onChange={(e) => handlerChange(e)}
-                className={form.input}
-              />
-              {error && <span className="error">{error.rating}</span>}
-              <span className={error ? "error" : ""}>*</span>
-            </div>
-
-            <input type="submit" value="Crear"  onClick={(e) => handleOnSubmit(e)}/>
-            <select onChange={(e) => handlerGenres(e)}>
-              <option>ALL GENRES</option>
-              {genresList.map((genres) => (
-                <option key={genres.id} value={genres.name}>
-                  {genres.name}
-                </option>
-              ))}
-            </select>
-          </form>
-        )}
+          ) : (
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.gridContainer}>
+                <div className={styles.gridItem}>
+                  <label className={styles.label}>NAME:</label>
+                </div>
+                <div className={styles.gridItem}>
+                  <input
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    className={styles.input}
+                  />
+                  {error && <span className={styles.error}>{error.name}</span>}
+                  <span className={error ? styles.error : ""}>*</span>
+                </div>
+              </div>
+              <div className={styles.gridContainer}>
+                <div className={styles.gridItem}>
+                  <label className={styles.label}>IMAGE:</label>
+                </div>
+                <div className={styles.gridItem}>
+                  <input
+                    type="text"
+                    name="image"
+                    value={form.image}
+                    onChange={handleChange}
+                    className={styles.input}
+                  />
+                  {error && <span className={styles.error}>{error.image}</span>}
+                  <span className={error ? styles.error : ""}>*</span>
+                </div>
+              </div>
+              <div className={styles.gridContainer}>
+                <div className={styles.gridItem}>
+                  <label className={styles.label}>DESCRIPTION:</label>
+                </div>
+                <div className={styles.gridItem}>
+                  <input
+                    type="text"
+                    name="description"
+                    value={form.description}
+                    onChange={handleChange}
+                    className={styles.input}
+                  />
+                  {error && (
+                    <span className={styles.error}>{error.description}</span>
+                  )}
+                  <span className={error ? styles.error : ""}>*</span>
+                </div>
+              </div>
+              <div className={styles.gridContainer}>
+                <div className={styles.gridItem}>
+                  <label className={styles.label}>PLATFORMS:</label>
+                </div>
+                <div className={styles.gridItem}>
+                  <input
+                    type="text"
+                    name="platforms"
+                    value={form.platforms}
+                    onChange={handleChange}
+                    className={styles.input}
+                  />
+                  {error && (
+                    <span className={styles.error}>{error.platforms}</span>
+                  )}
+                  <span className={error ? styles.error : ""}>*</span>
+                </div>
+              </div>
+              <div className={styles.gridContainer}>
+                <div className={styles.gridItem}>
+                  <label className={styles.label}>RELEASED:</label>
+                </div>
+                <div className={styles.gridItem}>
+                  <input
+                    type="text"
+                    name="released"
+                    value={form.released}
+                    onChange={handleChange}
+                    className={styles.input}
+                  />
+                  {error && <span className={styles.error}>{error.released}</span>}
+                  <span className={error ? styles.error : ""}>*</span>
+                </div>
+              </div>
+              <div className={styles.gridContainer}>
+                <div className={styles.gridItem}>
+                  <label className={styles.label}>RATING:</label>
+                </div>
+                <div className={styles.gridItem}>
+                  <input
+                    type="text"
+                    name="rating"
+                    value={form.rating}
+                    onChange={handleChange}
+                    className={styles.input}
+                  />
+                  {error && <span className={styles.error}>{error.rating}</span>}
+                  <span className={error ? styles.error : ""}>*</span>
+                </div>
+              </div>
+              <select onChange={handleGenres}>
+                <option className={styles.optionAllGenres}>ALL GENRES</option>
+                {genresList.map((genres) => (
+                  <option key={genres.id} value={genres.name}>
+                    {genres.name}
+                  </option>
+                ))}
+              </select>
+              <div className={styles.containerInput}>
+                <input
+                  className={styles.input}
+                  type="submit"
+                  value="Crear"
+                  onClick={handleSubmit}
+                />
+              </div>
+            </form>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

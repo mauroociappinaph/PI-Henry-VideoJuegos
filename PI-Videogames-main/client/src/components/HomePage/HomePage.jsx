@@ -44,7 +44,6 @@ const HomePage = () => {
     }
   }, [dispatch, videogames]);
 
-  
   const handlePageChange = (newPage, paging) => {
     if (newPage) {
       setPage(newPage);
@@ -72,165 +71,150 @@ const HomePage = () => {
   //-----------------------------------------------------------------
   return (
     <div>
-
       <Header />
-    <div className={styles.home}>
-      {error && <div className={styles.homeDivError}>Error: {error}</div>}
-      <div>
-        
-      </div>
-      <div className={styles.nav}>
-        <nav className={styles.lateral}>
-          <label className={styles.search} htmlFor="search">
-            BUSCAR VIDEOGAMES
-            <input
-              id="search"
-              type="search"
-              placeholder="NOMBRE"
-              onChange={(e) => handleOnSearch(e)}
-              className="bars"
-            />
-          </label>
+      <div className={styles.home}>
+        {error && <div className={styles.homeDivError}>Error: {error}</div>}
+        <div></div>
+        <div className={styles.nav}>
+          <nav className={styles.lateral}>
+            <label className={styles.search} htmlFor="search">
+              BUSCAR VIDEOGAMES
+              <input
+                id="search"
+                type="search"
+                placeholder="NOMBRE"
+                onChange={(e) => handleOnSearch(e)}
+                className="bars"
+              />
+            </label>
 
-          <div className={styles.filters}>
-            <div className={styles.titles}>Filters</div>
-            <FilterGenres setPage={setPage} />
-            <FilterOrigin setPage={setPage} />
-          </div>
-          <div className={styles.items}>
-            <div className={styles.titles}>ORDENAR</div>
-            <span>NOMBRE</span>
-            <div className={styles.order}>
-              <label htmlFor="asc" className={styles.input}>
-                <input
-                  type="radio"
-                  name="orderName"
-                  id="asc"
-                  checked={orderName === "asc"}
-                  onChange={(e) => handleOrderName(e)}
-                />
-                A - Z
-              </label>
-              <label htmlFor="des" className={styles.input}>
-                <input
-                  type="radio"
-                  name="orderName"
-                  id="des"
-                  checked={orderName === "des"}
-                  onChange={(e) => handleOrderName(e)}
-                />
-                Z - A
-              </label>
+            <div className={styles.filters}>
+              <div className={styles.titles}>Filters</div>
+              <FilterGenres setPage={setPage} />
+              <FilterOrigin setPage={setPage} />
             </div>
-            <span>RATING</span>
-            <div className={styles.order}>
-              <label htmlFor="up">
-                <input
-                  type="radio"
-                  id="up"
-                  name="orderRating"
-                  checked={orderRating === "up"}
-                  onChange={(e) => handleOrderRating(e)}
-                />
-                ASCENDENTE
-              </label>
-              <label htmlFor="down">
-                <input
-                  type="radio"
-                  id="down"
-                  name="orderRating"
-                  checked={orderRating === "down"}
-                  onChange={(e) => handleOrderRating(e)}
-                />
-                DECENDENTE
-              </label>
+            <div className={styles.items}>
+              <div className={styles.titles}>ORDENAR</div>
+              <span>NOMBRE</span>
+              <div className={styles.order}>
+                <label htmlFor="asc" className={styles.input}>
+                  <input
+                    type="radio"
+                    name="orderName"
+                    id="asc"
+                    checked={orderName === "asc"}
+                    onChange={(e) => handleOrderName(e)}
+                  />
+                  A - Z
+                </label>
+                <label htmlFor="des" className={styles.input}>
+                  <input
+                    type="radio"
+                    name="orderName"
+                    id="des"
+                    checked={orderName === "des"}
+                    onChange={(e) => handleOrderName(e)}
+                  />
+                  Z - A
+                </label>
+              </div>
+              <span>RATING</span>
+              <div className={styles.order}>
+                <label htmlFor="up">
+                  <input
+                    type="radio"
+                    id="up"
+                    name="orderRating"
+                    checked={orderRating === "up"}
+                    onChange={(e) => handleOrderRating(e)}
+                  />
+                  ASCENDENTE
+                </label>
+                <label htmlFor="down">
+                  <input
+                    type="radio"
+                    id="down"
+                    name="orderRating"
+                    checked={orderRating === "down"}
+                    onChange={(e) => handleOrderRating(e)}
+                  />
+                  DECENDENTE
+                </label>
+              </div>
             </div>
+          </nav>
+          <div className={styles.number}>
+            {videogamesAux.length > 0 && (
+              <div className={styles.paging}>
+                {pages.length > 1 && (
+                  <button
+                    id="-"
+                    onClick={(e) => handlePageChange(null, e.target.id)}
+                    className={styles.font}
+                  >
+                    PREV
+                  </button>
+                )}
+                {pages.map((newPage) => (
+                  <button
+                    key={newPage}
+                    onClick={() => handlePageChange(newPage)}
+                    className={styles.font}
+                  >
+                    {newPage}
+                  </button>
+                ))}
+                {pages.length > 1 && (
+                  <button
+                    id="+"
+                    onClick={(e) => handlePageChange(null, e.target.id)}
+                    className={styles.font}
+                  >
+                    NEXT
+                  </button>
+                )}
+              </div>
+            )}
           </div>
-        </nav>
-        <div className={styles.number}>
-          {videogamesAux.length > 0 && (
-            <div className={styles.paging}>
-              {pages.length > 1 && (
+          {pageVideogames && (
+            <div>
+              <div className={styles.pageNumberTop}>page: {page}</div>
+              <div className={styles.container}>
+                {pageVideogames.map((game) => (
+                  <Card
+                    id={game.id}
+                    key={game.id}
+                    name={game.name}
+                    background_image={game.background_image}
+                    genres={game.genres}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+          {videogames.length === 0 && (
+            <div className={styles.all}>
+              <progress className={styles.progressBar} />
+            </div>
+          )}
+
+          {videogames.length > 0 && pageVideogames.length === 0 && (
+            <div className={styles.all}>
+              {/* <div className={styles.loader}> */}
+              <div className={styles.btnImgContainer}>
                 <button
-                  id="-"
-                  onClick={(e) => handlePageChange(null, e.target.id)}
-                  className={styles.font}
+                  className={styles.btnNotFound}
+                  onClick={() => window.location.reload()}
                 >
-                  PREV
+                  {" "}
+                  RECARGAR{" "}
                 </button>
-              )}
-              {pages.map((newPage) => (
-                <button
-                  key={newPage}
-                  onClick={() => handlePageChange(newPage)}
-                  className={styles.font}
-                >
-                  {newPage}
-                </button>
-              ))}
-              {pages.length > 1 && (
-                <button
-                  id="+"
-                  onClick={(e) => handlePageChange(null, e.target.id)}
-                  className={styles.font}
-                >
-                  NEXT
-                </button>
-              )}
+              </div>
             </div>
           )}
         </div>
-        {pageVideogames && (
-          <div>
-            <div className={styles.pageNumberTop}>page: {page}</div>
-            <div className={styles.container}>
-              {pageVideogames.map((game) => (
-                <Card
-                  id={game.id}
-                  key={game.id}
-                  name={game.name}
-                  background_image={game.background_image}
-                  genres={game.genres}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-        {videogames.length === 0 && (
-          <div className={styles.all}>
-            <div className={styles.loader}>
-              <div className={styles.bar1}></div>
-              <div className={styles.bar2}></div>
-              <div className={styles.bar3}></div>
-              <div className={styles.bar4}></div>
-              <div className={styles.bar5}></div>
-              <div className={styles.bar6}></div>
-              <div className={styles.bar7}></div>
-              <div className={styles.bar8}></div>
-              <div className={styles.bar9}></div>
-              <div className={styles.bar10}></div>
-              <div className={styles.bar11}></div>
-              <div className={styles.bar12}></div>
-            </div>
-          </div>
-        )}
-        {videogames.length > 0 && pageVideogames.length === 0 && (
-          <div className={styles.all}>
-            {/* <div className={styles.loader}> */}
-            <div className={styles.btnImgContainer}>
-              <button
-                className={styles.btnNotFound}
-                onClick={() => window.location.reload()}
-              >
-                {" "}
-                RECARGAR{" "}
-              </button>
-            </div>
-          </div>
-        )}
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   );
 };

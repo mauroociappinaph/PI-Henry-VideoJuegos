@@ -1,102 +1,162 @@
-/* FormPage.module.css */
-
-.formContainer {
-  /* Estilos para el contenedor del formulario */
-  background-color: #7cb342;
-}
-
-.page {
-  /* Estilos para la página del formulario */
+.containerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  margin-top: 2rem;
+}
+
+.formContainer {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page {
+  width: auto;
+  padding: 2rem;
+  background-color: #f2f2f2;
+  border-radius: 0.8rem;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6.25rem; /* 100px */
+}
+
+.progressBar {
+  width: 100%;
+  height: 1.25rem; /* 20px */
+  background-color: #ccc;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.625rem; /* 10px */
+}
+
+.progressBar:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background-color: #5c9c41;
+  animation: progressAnimation 3s ease-in-out infinite;
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 .form {
-  /* Estilos para el formulario */
-  width: 400px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
-.asterisco {
-  /* Estilos para el asterisco */
-  color: red;
-}
-
-.select {
-  /* Estilos para el elemento select */
-  margin-bottom: 12px;
-}
-
-.textDescription {
-  /* Estilos para el campo de descripción */
-  resize: vertical;
-}
-
-.enviar {
-  /* Estilos para el botón de enviar */
-  margin-top: 16px;
-  padding: 8px 16px;
-  background-color: #7cb342; /* Verde claro */
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.enviar:hover {
-  background-color: #689f38; /* Verde oscuro al pasar el mouse */
-}
-
-.error {
-  /* Estilos para el mensaje de error */
-  color: red;
-  margin-top: 8px;
+.containerLabel {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .label {
-  /* Estilos para las etiquetas de los campos */
+  width: 6.25rem; /* 100px */
   font-weight: bold;
-  margin-bottom: 4px;
 }
 
 .input {
-  /* Estilos para los campos de entrada de texto */
-  margin-bottom: 8px;
-  padding: 4px;
+  padding: 0.5rem; /* 8px */
+  border: 1px solid #ccc;
+  border-radius: 0.25rem; /* 4px */
+  margin-left: 0.625rem; /* 10px */
+  width: 100%;
 }
 
-.option {
-  /* Estilos para las opciones del elemento select */
+.error {
+  color: red;
+  font-size: 0.75rem; /* 12px */
+  margin-left: 0.625rem; /* 10px */
 }
 
-.genreItem {
-  /* Estilos para los elementos de género seleccionados */
-  display: inline-block;
-  margin-right: 4px;
-  margin-bottom: 4px;
-  padding: 2px 4px;
-  background-color: #f1f1f1;
-  border-radius: 4px;
+.optionAllGenres {
+  font-weight: bold;
 }
 
-.deleteButton {
-  /* Estilos para el botón de eliminar género o plataforma */
-  margin-left: 4px;
-  padding: 2px 4px;
-  background-color: #e53935; /* Rojo claro */
-  color: #fff;
+.containerInput {
+  margin-top: 2rem;
+}
+
+.input[type="submit"] {
+  padding: 0.5rem 1rem; /* 8px 16px */
+  background-color: #5c9c41;
+  color: white;
+  font-weight: bold;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem; /* 4px */
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
-.description {
-  /* Estilos para el campo de descripción */
-  margin-bottom: 8px;
-  padding: 4px;
-  height: 100px;
+.input[type="submit"]:hover {
+  background-color: #4a8534;
+}
+
+/* Animación para la aparición del formulario */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s;
+}
+
+/* Estilos responsivos */
+
+@media screen and (max-width: 768px) {
+  .formContainer {
+    width: 90%;
+  }
+
+  .label {
+    width: 30%;
+  }
+
+  .input,
+  .input[type="submit"] {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .formContainer {
+    width: 100%;
+  }
+
+  .label {
+    width: 40%;
+  }
+
+  .input,
+  .input[type="submit"] {
+    width: 60%;
+  }
 }
