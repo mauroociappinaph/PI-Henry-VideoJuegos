@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterByOrigin } from "../../../../redux/actions/actions";
+import styles from "./FilterOrigin.module.css";
 
 const FilterOrigin = ({ setPage }) => {
   const dispatch = useDispatch();
@@ -12,13 +13,14 @@ const FilterOrigin = ({ setPage }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="origin">Origin: </label>
-      <br />
+    <div className={styles.containerFilterOrigin}>
+      <label htmlFor="origin" className={styles.filterOriginLabel}>
+        Origin:
+      </label>
       <select
         id="origin"
         onChange={(e) => handleOnSelect(e)}
-        style={{ width: "100%" }}
+        className={styles.filterOriginSelect}
       >
         <option value="select">All</option>
         <option value="false">Api</option>

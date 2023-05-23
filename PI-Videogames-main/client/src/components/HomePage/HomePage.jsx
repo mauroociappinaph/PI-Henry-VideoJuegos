@@ -29,6 +29,7 @@ const HomePage = () => {
   const pageVideogames = videogamesAux.slice(firstIndex, lastIndex);
   const pagesNumber = Math.ceil(videogamesAux.length / videogamesPerPage);
   const pages = [...Array(pagesNumber).keys()].map((i) => i + 1);
+
   useEffect(() => {
     if (videogames.length === 0) {
       dispatch(getAllVideogames());
@@ -68,89 +69,127 @@ const HomePage = () => {
     dispatch(findVideogame(e.target.value));
     setPage(1);
   };
-  //-----------------------------------------------------------------
+
   return (
     <div>
       <Header />
       <div className={styles.home}>
         {error && <div className={styles.homeDivError}>Error: {error}</div>}
-        <div></div>
-        <div className={styles.nav}>
-          <nav className={styles.lateral}>
-            <label className={styles.search} htmlFor="search">
-              BUSCAR VIDEOGAMES
+
+        <div className={styles.homeContent}>
+          <div className={styles.sideBar}>
+            <div className={styles.searchContainer}>
+              <h2 className={styles.searchTitle}>BUSCAR VIDEOGAMES</h2>
               <input
                 id="search"
                 type="search"
                 placeholder="NOMBRE"
                 onChange={(e) => handleOnSearch(e)}
-                className="bars"
+                className={styles.searchInput}
               />
-            </label>
+            </div>
 
-            <div className={styles.filters}>
-              <div className={styles.titles}>Filters</div>
-              <FilterGenres setPage={setPage} />
-              <FilterOrigin setPage={setPage} />
-            </div>
-            <div className={styles.items}>
-              <div className={styles.titles}>ORDENAR</div>
-              <span>NOMBRE</span>
-              <div className={styles.order}>
-                <label htmlFor="asc" className={styles.input}>
-                  <input
-                    type="radio"
-                    name="orderName"
-                    id="asc"
-                    checked={orderName === "asc"}
-                    onChange={(e) => handleOrderName(e)}
-                  />
-                  A - Z
-                </label>
-                <label htmlFor="des" className={styles.input}>
-                  <input
-                    type="radio"
-                    name="orderName"
-                    id="des"
-                    checked={orderName === "des"}
-                    onChange={(e) => handleOrderName(e)}
-                  />
-                  Z - A
-                </label>
-              </div>
-              <span>RATING</span>
-              <div className={styles.order}>
-                <label htmlFor="up">
-                  <input
-                    type="radio"
-                    id="up"
-                    name="orderRating"
-                    checked={orderRating === "up"}
-                    onChange={(e) => handleOrderRating(e)}
-                  />
-                  ASCENDENTE
-                </label>
-                <label htmlFor="down">
-                  <input
-                    type="radio"
-                    id="down"
-                    name="orderRating"
-                    checked={orderRating === "down"}
-                    onChange={(e) => handleOrderRating(e)}
-                  />
-                  DECENDENTE
-                </label>
+            <div className={styles.filterSection}>
+              <h2 className={styles.filterTitle}>FILTROS</h2>
+              <div className={styles.filterContainer}>
+                <FilterGenres setPage={setPage} />
+                <FilterOrigin setPage={setPage} />
               </div>
             </div>
-          </nav>
-          <div className={styles.number}>
-            {videogamesAux.length > 0 && (
-              <div className={styles.paging}>
+
+            <div className={styles.orderSection}>
+              <h2 className={styles.orderTitle}>ORDENAR</h2>
+              <div className={styles.orderContainer}>
+                <span>NOMBRE</span>
+                <div className={styles.orderRadio}>
+                  <label htmlFor="asc" className={styles.input}>
+                    <input
+                      type="radio"
+                      name="orderName"
+                      id="asc"
+                      checked={orderName === "asc"}
+                      onChange={(e) => handleOrderName(e)}
+                    />
+                    A - Z
+                  </label>
+                  <label htmlFor="des" className={styles.input}>
+                    <input
+                      type="radio"
+                      name="orderName"
+                      id="des"
+                      checked={orderName === "des"}
+                      onChange={(e) => handleOrderName(e)}
+                    />
+                    Z - A
+                  </label>
+                </div>
+                <span>RATING</span>
+                <div className={styles.orderRadio}>
+                  <label htmlFor="up">
+                    <input
+                      type="radio"
+                      id="up"
+                      name="orderRating"
+                      checked={orderRating === "up"}
+                      onChange={(e) => handleOrderRating(e)}
+                    />
+                    ASCENDENTE
+                  </label>
+                  <label htmlFor="down">
+                    <input
+                      type="radio"
+                      id="down"
+                      name="orderRating"
+                      checked={orderRating === "down"}
+                      onChange={(e) => handleOrderRating(e)}
+                    />
+                    DESCENDENTE
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.mainContent}>
+            <div className={styles.pageNumberTop}>page: {page}</div>
+            <div className={styles.cardsContainer}>
+              {pageVideogames.map((game) => (
+                <Card
+                  id={game.id}
+                  key={game.id}
+                  name={game.name}
+                  background_image={game.background_image}
+                  genres={game.genres}
+                />
+              ))}
+            </div>
+
+            {videogames.length === 0 && (
+              <div className={styles.loadingContainer}>
+                <div className={styles.progressBar} />
+              </div>
+            )}
+
+            {videogames.length > 0 && pageVideogames.length === 0 && (
+              <div className={styles.notFoundContainer}>
+                <div className={styles.btnImgContainer}>
+                  <button
+                    className={styles.btnNotFound}
+                    onClick={() => window.location.reload()}
+                  >
+                    RECARGAR
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {pageVideogames && (
+              <div className={styles.paginationContainer}>
                 {pages.length > 1 && (
                   <button
                     id="-"
                     onClick={(e) => handlePageChange(null, e.target.id)}
-                    className={styles.font}
+                    className={styles.paginationBtn}
                   >
                     PREV
                   </button>
@@ -159,7 +198,7 @@ const HomePage = () => {
                   <button
                     key={newPage}
                     onClick={() => handlePageChange(newPage)}
-                    className={styles.font}
+                    className={styles.paginationBtn}
                   >
                     {newPage}
                   </button>
@@ -168,7 +207,7 @@ const HomePage = () => {
                   <button
                     id="+"
                     onClick={(e) => handlePageChange(null, e.target.id)}
-                    className={styles.font}
+                    className={styles.paginationBtn}
                   >
                     NEXT
                   </button>
@@ -176,47 +215,11 @@ const HomePage = () => {
               </div>
             )}
           </div>
-          {pageVideogames && (
-            <div>
-              <div className={styles.pageNumberTop}>page: {page}</div>
-              <div className={styles.container}>
-                {pageVideogames.map((game) => (
-                  <Card
-                    id={game.id}
-                    key={game.id}
-                    name={game.name}
-                    background_image={game.background_image}
-                    genres={game.genres}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-          {videogames.length === 0 && (
-            <div className={styles.all}>
-              <progress className={styles.progressBar} />
-            </div>
-          )}
-
-          {videogames.length > 0 && pageVideogames.length === 0 && (
-            <div className={styles.all}>
-              {/* <div className={styles.loader}> */}
-              <div className={styles.btnImgContainer}>
-                <button
-                  className={styles.btnNotFound}
-                  onClick={() => window.location.reload()}
-                >
-                  {" "}
-                  RECARGAR{" "}
-                </button>
-              </div>
-            </div>
-          )}
         </div>
       </div>
       <Footer />
     </div>
   );
 };
-//---------------------------------------------------------------------
+
 export default HomePage;

@@ -1,8 +1,7 @@
-import React, { useEffect , useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByGenres, getGenres } from "../../../../redux/actions/actions";
 import styles from "./FilterGenres.module.css";
-
 
 const handleOnChange = (e, filters, setFilters, dispatch, setPage) => {
   e.preventDefault();
@@ -38,18 +37,27 @@ const FilterGenres = ({ setPage }) => {
         {errorFilter && <span>No videogames</span>}
         <select
           id="genres"
-          onChange={(e) => handleOnChange(e, filters, setFilters, dispatch, setPage)}
+          onChange={(e) =>
+            handleOnChange(e, filters, setFilters, dispatch, setPage)
+          }
           className={styles.filterGenresSelect}
         >
           <option className={styles.filterGenresOption}>All </option>
           {genres.map((genre) => (
-            <option className={styles.filterGenresOption} value={genre.name} key={genre.id}>
+            <option
+              className={styles.filterGenresOption}
+              value={genre.name}
+              key={genre.id}
+            >
               {genre.name}
             </option>
           ))}
         </select>
         <span className={styles.filterGenresSpan}>
-          <button className={styles.filterGenresButton} onClick={handleOnClick}>
+          <button
+            className={styles.filterGenresButton}
+            onClick={handleOnClick}
+          >
             x
           </button>
         </span>

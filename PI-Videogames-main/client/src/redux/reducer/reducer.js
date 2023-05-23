@@ -69,8 +69,9 @@ const reducer = (state = initialState, action) => {
       };
     case FILTER_BY_ORIGIN:
       const filterVideogame = videogamesAux.filter(
-        (game) => game.create.toString() === action.payload.toString()
+        (game) => game.create && action.payload && game.create.toString() === action.payload.toString()
       );
+      
       return {
         ...state,
         videogamesAux: filterVideogame,

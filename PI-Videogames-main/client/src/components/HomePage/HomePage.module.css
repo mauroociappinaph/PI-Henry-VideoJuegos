@@ -1,9 +1,10 @@
+/* Estilos generales */
+
 .home {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
 }
 
 .homeDivError {
@@ -12,29 +13,13 @@
   margin-bottom: 10px;
 }
 
-.filters {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  width: 100%;
-}
-
-.lateral {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  width: 80%;
-}
-
 .search {
   padding: 8px;
-  border: 1px solid gray;
   border-radius: 4px;
-  width: 100%;
   margin-top: 8px;
+}
+
+.searchH2 {
 }
 
 .bars {
@@ -100,9 +85,9 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container > :last-child {
@@ -113,32 +98,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
+  margin: 80px;
 }
 
 .loader {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-.bar1,
-.bar2,
-.bar3,
-.bar4,
-.bar5,
-.bar6,
-.bar7,
-.bar8,
-.bar9,
-.bar10,
-.bar11,
-.bar12 {
-  height: 4px;
-  width: 4px;
-  margin-right: 2px;
-  background-color: black;
-  animation: loading 1.2s infinite;
 }
 
 @keyframes loading {
@@ -166,7 +132,7 @@
 }
 
 .btnNotFound {
-  margin-top: 16px;
+  margin: 16px;
   padding: 8px 16px;
   font-size: 16px;
   font-weight: bold;
@@ -176,4 +142,65 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+/* Estilos responsive */
+
+@media (min-width: 768px) {
+  .homeContent {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .sideBar {
+    width: 25%;
+    margin-right: 16px;
+  }
+
+  .filterSection,
+  .orderSection {
+    width: 100%;
+  }
+
+  .filterContainer,
+  .orderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mainContent {
+    width: 75%;
+  }
+}
+
+@media (max-width: 767px) {
+  .homeContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sideBar {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .mainContent {
+    width: 100%;
+  }
+
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsContainer {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,97 +1,86 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .detail {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .items {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .genres_platforms {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 5px;
-  }
-  
-  .description {
-   
-    margin-top: 20px;
-  }
-  
-  .img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
-  
-  .all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-  }
-  
-  .loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 2rem;
-    background-color: #f0f0f0;
-  }
-  
-  .progressBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.header {
+  /* Estilos del header */
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.progressBar {
+  width: 100px;
+  height: 10px;
+  background-color: #ccc;
+  animation: progress 1s linear infinite;
+}
+
+@keyframes progress {
+  0% {
     width: 0;
-    height: 100%;
-    background-color: #7cb342;
-    animation: loading 2s infinite ease-in-out;
   }
-  
-  @keyframes loading {
-    0% {
-      width: 0;
-    }
-    50% {
-      width: 50%;
-    }
-    100% {
-      width: 100%;
-    }
+  100% {
+    width: 100px;
   }
-  
-  
+}
+
+.card {
+  margin-top: 40px;
+  width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.detail {
+  flex: 1;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.genres,
+.platforms,
+.rating,
+.released,
+.description {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.genreList,
+.platformList {
+  margin-top: 5px;
+}
+
+.genre,
+.platform {
+  margin-bottom: 5px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
