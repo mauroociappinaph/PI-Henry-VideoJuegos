@@ -72,14 +72,14 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header />
+      
       <div className={styles.home}>
         {error && <div className={styles.homeDivError}>Error: {error}</div>}
 
         <div className={styles.homeContent}>
           <div className={styles.sideBar}>
             <div className={styles.searchContainer}>
-              <h2 className={styles.searchTitle}>BUSCAR VIDEOGAMES</h2>
+              <h2 className={styles.orderTitle}>BUSCAR VIDEOGAMES</h2>
               <input
                 id="search"
                 type="search"
@@ -90,7 +90,7 @@ const HomePage = () => {
             </div>
 
             <div className={styles.filterSection}>
-              <h2 className={styles.filterTitle}>FILTROS</h2>
+              <h2 className={styles.orderTitle}>FILTROS</h2>
               <div className={styles.filterContainer}>
                 <FilterGenres setPage={setPage} />
                 <FilterOrigin setPage={setPage} />
@@ -100,7 +100,7 @@ const HomePage = () => {
             <div className={styles.orderSection}>
               <h2 className={styles.orderTitle}>ORDENAR</h2>
               <div className={styles.orderContainer}>
-                <span>NOMBRE</span>
+                <span className={styles.orderSpan}>NOMBRE</span>
                 <div className={styles.orderRadio}>
                   <label htmlFor="asc" className={styles.input}>
                     <input
@@ -123,7 +123,7 @@ const HomePage = () => {
                     Z - A
                   </label>
                 </div>
-                <span>RATING</span>
+                <span className={styles.orderSpan}>RATING</span>
                 <div className={styles.orderRadio}>
                   <label htmlFor="up">
                     <input
@@ -217,7 +217,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 };

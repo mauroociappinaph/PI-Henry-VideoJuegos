@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 50px;
+ 
 }
 
 .homeDivError {
@@ -94,8 +96,12 @@
 }
 
 .pageNumberTop {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 6rem;
   color: white;
 }
 
@@ -177,7 +183,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
+  
   margin-right: 16px;
 }
 
@@ -208,8 +214,9 @@
 .paginationContainer {
   display: flex;
   justify-content: center;
+  width: 100%;
   align-items: center;
-  margin-top: 16px;
+  margin: auto;
 }
 
 .paginationBtn {
@@ -254,3 +261,42 @@
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+/* ...otros estilos... */
+
+.orderSection {
+  width: 100%;
+}
+
+.orderTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7cb342 ;
+
+}
+
+.orderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.orderSpan {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.orderRadio {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderRadio label {
+  margin-bottom: 4px;
+}
+
+.orderRadio input[type="radio"] {
+  margin-right: 4px;
+}
+
+/* ...otros estilos... */

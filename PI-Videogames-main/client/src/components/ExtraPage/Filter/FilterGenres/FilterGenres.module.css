@@ -1,11 +1,12 @@
 .containerFilterGenres {
-    display: flex;
-
-    margin-bottom: 16px;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  margin-bottom: 16px;
   }
   
   .filterGenresLabel {
-    display: flex;
+    
     flex-direction: column;
     justify-content: center;
     font-size: 16px;
@@ -19,6 +20,7 @@
   .filterGenresSelect {
     margin-top: 8px;
     padding: 4px;
+    width: 158px;
     border-radius: 4px;
     background-color: #fff;
     color: #212121; /* Gris oscuro */

@@ -1,16 +1,18 @@
 .cardContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 2px solid #000;
   background-color: #7cb342;
+  
 }
 
 .card {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+ 
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -30,13 +32,15 @@
 }
 
 .cardInformacion {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 16px;
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
+  border: red solid 2px;
+  height: 100px;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -48,10 +52,13 @@
 .cardH2 {
   margin: 0;
   text-align: center;
-  font-size: 20px;
+  color: #fff;
+  font-size: 15px;
+  padding: .6rem;
 }
 
 .cardP {
   margin: 8px 0 0;
-  font-size: 14px;
+ 
+  font-size: 10px;
 }

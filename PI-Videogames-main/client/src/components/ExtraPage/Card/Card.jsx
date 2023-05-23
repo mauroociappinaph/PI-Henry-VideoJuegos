@@ -25,13 +25,17 @@ const Card = ({ id, name, background_image, genre }) => {
           onTouchStart={() => setShowInfo(true)}
           onTouchEnd={() => setShowInfo(false)}
         />
-        {showInfo && (
+         {showInfo && (
           <div className={styles.cardInformation}>
             <h2 className={styles.cardH2}>{name}</h2>
             <p className={styles.cardP}>{genre}</p>
           </div>
         )}
       </div>
+      <div className={styles.cardInformation}>
+            <h2 className={styles.cardH2}>{name}</h2>
+            <p className={styles.cardP}>{genre}</p>
+          </div>
     </div>
   );
 };
