@@ -223,7 +223,7 @@ const HomePage = () => {
                 onClick={() => window.location.reload()}
               >
                 {" "}
-                YES{" "}
+                RECARGAR{" "}
               </button>
             </div>
           </div>

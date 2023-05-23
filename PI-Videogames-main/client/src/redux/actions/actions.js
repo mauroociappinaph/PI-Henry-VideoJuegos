@@ -10,18 +10,18 @@ import {
   ORDER_BY_RATING,
 } from "./actions-type";
 import axios from "axios";
-
-const api = axios.create({
+axios.defaults.baseURL="http://localhost:3001"
+/*const api = axios.create({
   baseURL: "https://videogameapi.onrender.com", // "http://localhost:3001",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
   },
-});
+}); */
 
 export const getAllVideogames = () => {
   return async function (dispatch) {
-    const json = await api.get("/videogames");
+    const json = await axios.get("/videogames");
     const data = json.data;
     return dispatch({
       type: GET_ALL_VIDEOGAMES,
@@ -33,7 +33,7 @@ export const getAllVideogames = () => {
 export const findVideogame = (payload) => {
   return async function (dispatch) {
     try {
-      const json = await api.get(`/videogames?name=${payload}`);
+      const json = await axios.get(`/videogames?name=${payload}`);
       const data = json.data;
       return dispatch({ type: FIND_VIDEOGAME, payload: data });
     } catch (error) {
@@ -44,7 +44,7 @@ export const findVideogame = (payload) => {
 
 export const videogameDetail = (id) => {
   return async function (dispatch) {
-    const json = await api.get(`/videogames/${id}`);
+    const json = await axios.get(`/videogames/${id}`);
     const data = json.data;
     return dispatch({ type: VIDEOGAME_DETAIL, payload: data });
   };
@@ -52,7 +52,7 @@ export const videogameDetail = (id) => {
 
 export const getGenres = () => {
   return async function (dispatch) {
-    const json = await api.get("/genres");
+    const json = await axios.get("/genres");
     const data = json.data;
     return dispatch({ type: GET_GENRES, payload: data });
   };
@@ -61,9 +61,8 @@ export const getGenres = () => {
 export const postVideogame = (form) => {
   return async function (dispatch) {
     try {
-      const data = await api.post("/videogames", form);
-
-      api
+      const data = await axios.post("/videogames", form);
+      axios
         .get("/videogames")
         .then((json) => json.data)
         .then((data) => dispatch({ type: GET_ALL_VIDEOGAMES, payload: data }));
@@ -78,7 +77,7 @@ export const postVideogame = (form) => {
 export const getAllPlatforms = () => {
   return async function (dispatch) {
     try {
-      const json = await api.get("/platforms");
+      const json = await axios.get("/platforms");
       const data = json.data;
       return dispatch({ type: GET_ALL_PLATFORMS, payload: data });
     } catch (error) {

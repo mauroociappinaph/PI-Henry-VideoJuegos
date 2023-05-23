@@ -58,7 +58,7 @@ const reducer = (state = initialState, action) => {
           action.payload.forEach((genre) => {
             if (!videogame.genres.includes(genre)) {
               noIncludesGenre.push(genre);
-            } 
+            }
           });
           return !noIncludesGenre.length;
         });
@@ -68,16 +68,9 @@ const reducer = (state = initialState, action) => {
         videogamesAux: filterGenresVideogames,
       };
     case FILTER_BY_ORIGIN:
-      const filterVideogame = 
-      action.payload === "db"
-      ? videogamesAux.filter( (game) => {
-        if( typeof game.id == "string" )
-        return game.id;
-      }) 
-      : videogamesAux.filter((game) => {
-        if( typeof game.id == "number")
-        return game.id;
-      })
+      const filterVideogame = videogamesAux.filter(
+        (game) => game.create.toString() === action.payload.toString()
+      );
       return {
         ...state,
         videogamesAux: filterVideogame,

@@ -21,8 +21,8 @@ const FilterOrigin = ({ setPage }) => {
         style={{ width: "100%" }}
       >
         <option value="select">All</option>
-        <option value="api">Api</option>
-        <option value="db">Database</option>
+        <option value="false">Api</option>
+        <option value="true">Database</option>
       </select>
     </div>
   );

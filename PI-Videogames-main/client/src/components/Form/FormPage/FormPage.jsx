@@ -61,6 +61,15 @@ const FormPage = () => {
     e.preventDefault();
     if (validateForm()) {
       dispatch(postVideogame(form));
+      setForm({
+        name: "",
+        image: "",
+        description: "",
+        plataforms: "",
+        released: "",
+        rating: 0,
+        genres: [],
+      })
       history.push("/home");
     }
   };
@@ -111,6 +120,7 @@ const FormPage = () => {
                 name="name"
                 value={form.name}
                 onChange={(e) => handlerChange(e)}
+                className={form.input}
               />
               {error && <span className="error">{error.name}</span>}
               <span className={error ? "error" : ""}>*</span>
@@ -122,6 +132,7 @@ const FormPage = () => {
                 name="image"
                 value={form.image}
                 onChange={(e) => handlerChange(e)}
+                className={form.input}
               />
               {error && <span className="error">{error.image}</span>}
               <span className={error ? "error" : ""}>*</span>
@@ -133,6 +144,7 @@ const FormPage = () => {
                 name="description"
                 value={form.description}
                 onChange={(e) => handlerChange(e)}
+                className={form.input}
               />
               {error && <span className="error">{error.description}</span>}
               <span className={error ? "error" : ""}>*</span>
@@ -144,6 +156,7 @@ const FormPage = () => {
                 name="plataforms"
                 value={form.plataforms}
                 onChange={(e) => handlerChange(e)}
+                className={form.input}
               />
               {error && <span className="error">{error.plataforms}</span>}
               <span className={error ? "error" : ""}>*</span>
@@ -155,6 +168,7 @@ const FormPage = () => {
                 name="released"
                 value={form.released}
                 onChange={(e) => handlerChange(e)}
+                className={form.input}
               />
               {error && <span className="error">{error.released}</span>}
               <span className={error ? "error" : ""}>*</span>
@@ -166,6 +180,7 @@ const FormPage = () => {
                 name="rating"
                 value={form.rating}
                 onChange={(e) => handlerChange(e)}
+                className={form.input}
               />
               {error && <span className="error">{error.rating}</span>}
               <span className={error ? "error" : ""}>*</span>
