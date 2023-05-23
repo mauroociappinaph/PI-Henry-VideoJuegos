@@ -9,6 +9,7 @@ import {
 
 import styles from "./FormPage.module.css";
 import Header from "../../ExtraPage/Header/Header";
+import Footer from "../../ExtraPage/Footer/Footer";
 
 const FormPage = () => {
   const history = useHistory();
@@ -232,6 +233,7 @@ const FormPage = () => {
           )}
         </div>
       </div>
+      <Footer className={styles.footer} />
     </div>
   );
 };
