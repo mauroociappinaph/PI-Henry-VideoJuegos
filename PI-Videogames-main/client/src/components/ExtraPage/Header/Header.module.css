@@ -1,15 +1,25 @@
 .header {
-    background-image: url('../../../../asset/sigmund-By-tZImt0Ms-unsplash.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 20px;
-    text-align: center;
-   
-  }
-  
+  background-image: url('../../../../asset/sigmund-By-tZImt0Ms-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 4rem;
+  color: #ffffff;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
   .title {
-    font-size: 4rem;
-    color: #ffffff;
-  
+    font-size: 3rem;
   }
-  
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+}
