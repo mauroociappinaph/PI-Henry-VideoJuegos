@@ -17,18 +17,18 @@ const FormPage = () => {
   const dispatch = useDispatch();
   const [form, setForm] = useState({
     name: "",
-    image: "",
     description: "",
     platforms: "",
+    background_image: "",
     released: "",
     rating: 0,
     genres: [],
   });
   const [error, setError] = useState({
     name: "",
-    image: "",
     description: "",
     platforms: "",
+    background_image: "",
     released: "",
     rating: 0,
     genres: [],
@@ -61,15 +61,6 @@ const FormPage = () => {
     e.preventDefault();
     if (validateForm()) {
       dispatch(postVideogame(form));
-      setForm({
-        name: "",
-        image: "",
-        description: "",
-        platforms: "",
-        released: "",
-        rating: 0,
-        genres: [],
-      });
       history.push("/home");
     }
   };
