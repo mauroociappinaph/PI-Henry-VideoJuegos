@@ -72,13 +72,13 @@ const HomePage = () => {
 
   return (
     <div>
-      
+      <Header />
       <div className={styles.home}>
         {error && <div className={styles.homeDivError}>Error: {error}</div>}
 
         <div className={styles.homeContent}>
           <div className={styles.sideBar}>
-            <div className={styles.searchContainer}>
+            <div className={styles.search}>
               <h2 className={styles.orderTitle}>BUSCAR VIDEOGAMES</h2>
               <input
                 id="search"
@@ -151,7 +151,7 @@ const HomePage = () => {
           </div>
 
           <div className={styles.mainContent}>
-            <div className={styles.pageNumberTop}>page: {page}</div>
+            <div className={styles.pageNumberTop}>{page}</div>
             <div className={styles.cardsContainer}>
               {pageVideogames.map((game) => (
                 <Card
@@ -217,7 +217,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      
+      <Footer />
     </div>
   );
 };

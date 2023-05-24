@@ -1,3 +1,5 @@
+
+
 .containerForm {
   flex-direction: column;
   align-items: center;
@@ -20,16 +22,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 6.25rem; /* 100px */
+  height: 6.25rem; 
 }
 
 .progressBar {
   width: 100%;
-  height: 1.25rem; /* 20px */
+  height: 1.25rem; 
   background-color: #ccc;
   position: relative;
   overflow: hidden;
-  border-radius: 0.625rem; /* 10px */
+  border-radius: 0.625rem; 
 }
 
 .progressBar:before {
@@ -54,11 +56,9 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ 
   margin-top: 2rem;
-  width: fit-content;
+  width: 80%;
 }
 
 .containerLabel {
@@ -68,39 +68,53 @@
 }
 
 .label {
-  width: 6.25rem; /* 100px */
-  font-weight: bold;
+  width: 6.25rem; 
+  font-weight: 400;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #7cb342;
 }
 
 .input {
-  padding: 0.5rem; /* 8px */
-  border: 1px solid #ccc;
-  border-radius: 0.25rem; /* 4px */
-  margin-left: 0.625rem; /* 10px */
   width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+  margin: .4rem;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #7cb342;
+  outline: none;
 }
 
 .error {
   color: red;
-  font-size: 0.75rem; /* 12px */
-  margin-left: 0.625rem; /* 10px */
-}
+  font-size: 0.75rem; 
+  margin-left: 0.625rem; 
 
 .optionAllGenres {
   font-weight: bold;
 }
 
 .containerInput {
+  display: flex;
+  align-items: center;
   margin-top: 2rem;
+  width: 100%;
 }
 
 .input[type="submit"] {
-  padding: 0.5rem 1rem; /* 8px 16px */
+  padding: 0.5rem 1rem; 
   background-color: #5c9c41;
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 0.25rem; /* 4px */
+  border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 100%;
@@ -110,7 +124,7 @@
   background-color: #4a8534;
 }
 
-/* Animación para la aparición del formulario */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -121,14 +135,14 @@
 }
 
 .page {
+  border: .5rem solid #7cb342;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.5s;
+  animation: fadeIn 0.7s;
+  margin: .6rem;
 }
-
-/* Estilos responsivos */
 
 @media screen and (max-width: 768px) {
   .formContainer {
@@ -160,7 +174,31 @@
   }
 }
 
-/* Estilos para el Footer */
+
 .footer {
   width: 100%;
+}
+
+.containerSelect {
+  display: flex;
+  justify-content: center;
+  margin: .4rem;
+}
+
+.select {
+
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.select:hover,
+.select:focus {
+  border-color: #7cb342;
+  outline: none;
+}
 }

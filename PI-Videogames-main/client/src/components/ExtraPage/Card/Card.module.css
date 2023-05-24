@@ -1,3 +1,7 @@
+/*
+
+*/
+
 .cardContainer {
   display: flex;
   flex-direction: column;
@@ -32,7 +36,7 @@
 }
 
 .cardInformacion {
-  /* position: absolute; */
+
   bottom: 0;
   left: 0;
   width: 100%;

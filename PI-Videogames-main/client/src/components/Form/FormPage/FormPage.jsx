@@ -193,7 +193,9 @@ const FormPage = () => {
                     onChange={handleChange}
                     className={styles.input}
                   />
-                  {error && <span className={styles.error}>{error.released}</span>}
+                  {error && (
+                    <span className={styles.error}>{error.released}</span>
+                  )}
                   <span className={error ? styles.error : ""}>*</span>
                 </div>
               </div>
@@ -209,18 +211,22 @@ const FormPage = () => {
                     onChange={handleChange}
                     className={styles.input}
                   />
-                  {error && <span className={styles.error}>{error.rating}</span>}
+                  {error && (
+                    <span className={styles.error}>{error.rating}</span>
+                  )}
                   <span className={error ? styles.error : ""}>*</span>
                 </div>
               </div>
-              <select onChange={handleGenres}>
-                <option className={styles.optionAllGenres}>ALL GENRES</option>
-                {genresList.map((genres) => (
-                  <option key={genres.id} value={genres.name}>
-                    {genres.name}
-                  </option>
-                ))}
-              </select>
+              <div className={styles.containerSelect}>
+                <select className={styles.select} onChange={handleGenres}>
+                  <option className={styles.optionAllGenres}>ALL GENRES</option>
+                  {genresList.map((genres) => (
+                    <option key={genres.id} value={genres.name}>
+                      {genres.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <div className={styles.containerInput}>
                 <input
                   className={styles.input}
@@ -239,5 +245,3 @@ const FormPage = () => {
 };
 
 export default FormPage;
-
-

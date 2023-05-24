@@ -1,9 +1,12 @@
+/*
+
+*/
 .containerNav {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px;
-  background-color: #fff ; /* Verde claro */
+  background-color: #fff ; 
 }
 
 .linkH2  {
@@ -37,9 +40,9 @@
 .div {
   padding: 8px;
   border-radius: 4px;
-  background-color: rgba(234, 234, 234, 0.2); /* Gris claro */
+  background-color: rgba(234, 234, 234, 0.2); 
 }
 
 .div:hover {
-  background-color: rgba(234, 234, 234, 0.3); /* Gris claro con mayor transparencia */
+  background-color: rgba(234, 234, 234, 0.3); 
 }

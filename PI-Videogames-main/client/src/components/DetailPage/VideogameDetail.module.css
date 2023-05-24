@@ -1,97 +1,190 @@
+
+
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .detail {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .items {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .genres_platforms {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 5px;
-  }
-  
-  .description {
-   
-    margin-top: 20px;
-  }
-  
-  .img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
-  
-  .all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-  }
-  
-  .loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 2rem;
-    background-color: #f0f0f0;
-  }
-  
-  .progressBar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.items {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem;
+  padding: 0.4rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gridItem.inline {
+  display: inline-block;
+  margin-right: 20px; 
+}
+
+.genres {
+  margin-bottom: 1rem;
+}
+
+.platforms {
+  margin-top: 1rem;
+}
+
+.genres-list {
+  display: none;
+}
+
+.platforms-list {
+  display: none;
+}
+
+.list-toggle {
+  cursor: pointer;
+  color: #7cb342;
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}
+
+.list-toggle.active {
+  text-decoration: none;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  padding: 0.2rem;
+  margin: 15px;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  object-fit: contain; 
+}
+
+.all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 2rem;
+  background-color: #f0f0f0;
+}
+
+.progressBar {
+  width: 0;
+  height: 100%;
+  background-color: #7cb342;
+  animation: loading 2s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% {
     width: 0;
-    height: 100%;
-    background-color: #7cb342;
-    animation: loading 2s infinite ease-in-out;
   }
-  
-  @keyframes loading {
-    0% {
-      width: 0;
-    }
-    50% {
-      width: 50%;
-    }
-    100% {
-      width: 100%;
-    }
+  50% {
+    width: 50%;
   }
-  
-  
+  100% {
+    width: 100%;
+  }
+}
+
+.listH2 {
+  font-size: 1.7rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gridItem.inline {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 10px; 
+}
+
+.contenedorRatingReleased {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.contenedorRating,
+.contenedorReleased {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.h4 {
+  font-size: 18px; 
+  margin: 0;
+}
+
+.containerDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.descriptionH2 {
+  font-size: 1.7rem;
+}
+
+.descriptionSpan {
+  font-size: 1.2rem;
+}
+
+
