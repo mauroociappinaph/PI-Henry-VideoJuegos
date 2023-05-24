@@ -167,15 +167,17 @@
 }
 
 .btnNotFound {
+  display: flex;
+  justify-content: center;
   margin: 16px;
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: white;
-  background-color: black;
+  color: #ffffff;
+  background-color: #7cb342 ;
   border: none;
-  border-radius: 4px;
+  border-radius: .4rem;
   cursor: pointer;
 }
 

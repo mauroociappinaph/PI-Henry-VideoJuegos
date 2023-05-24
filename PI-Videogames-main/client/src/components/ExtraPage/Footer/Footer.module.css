@@ -1,6 +1,6 @@
+/* Footer.module.css */
 
-
-.bottomBar {
+.footer {
   background-color: #f2f2f2;
 }
 
@@ -13,6 +13,7 @@
   margin: 0 auto;
   padding: 0 20px;
   height: 100%;
+  
 }
 
 .leftSection,
@@ -58,15 +59,6 @@
   line-height: 1.5;
 }
 
-.bottomBar {
-  background-color: #ddd;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .copyRight {
   font-size: 12px;
   color: #555;
@@ -89,8 +81,3 @@
   text-decoration: none;
   font-size: 20px;
 }
-
-
-
-
-

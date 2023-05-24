@@ -148,6 +148,16 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+            <div className={styles.notFoundContainer}>
+                <div className={styles.btnImgContainer}>
+                  <button
+                    className={styles.btnNotFound}
+                    onClick={() => window.location.reload()}
+                  >
+                    RECARGAR
+                  </button>
+                </div>
+              </div>
           </div>
 
           <div className={styles.mainContent}>

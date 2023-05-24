@@ -15,16 +15,18 @@ const FilterOrigin = ({ setPage }) => {
   return (
     <div className={styles.containerFilterOrigin}>
       <label htmlFor="origin" className={styles.filterOriginLabel}>
+        <h5 className={styles.filterGenresH5}>
         Origin:
+        </h5>
       </label>
       <select
         id="origin"
         onChange={(e) => handleOnSelect(e)}
         className={styles.filterOriginSelect}
       >
-        <option value="select">All</option>
-        <option value="false">Api</option>
-        <option value="true">Database</option>
+        <option  value="select">All</option>
+        <option  value="false">Api</option>
+        <option  value="true">Database</option>
       </select>
     </div>
   );

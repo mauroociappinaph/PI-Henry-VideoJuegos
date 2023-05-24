@@ -33,8 +33,8 @@ const VideogameDetail = () => {
 
   return (
     <>
-      <div className={styles.container}>
         <Header className={styles.header} />
+      <div className={styles.container}>
         {detailLoading ? (
           <div className={styles.loader}>
             <div className={styles.progressBar}></div>

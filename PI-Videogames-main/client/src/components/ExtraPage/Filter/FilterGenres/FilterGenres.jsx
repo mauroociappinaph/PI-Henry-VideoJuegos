@@ -32,9 +32,11 @@ const FilterGenres = ({ setPage }) => {
   return (
     <div className={styles.containerFilterGenres}>
       <label className={styles.filterGenresLabel} htmlFor="genres">
-        Genres:
+        <h5 className={styles.filterGenresH5}>Genres</h5>
         <br />
-        {errorFilter && <span>No videogames</span>}
+        {errorFilter && (
+          <span className={styles.filterSpanAlert}>No videogames</span>
+        )}
         <select
           id="genres"
           onChange={(e) =>
@@ -42,7 +44,7 @@ const FilterGenres = ({ setPage }) => {
           }
           className={styles.filterGenresSelect}
         >
-          <option className={styles.filterGenresOption}>All </option>
+          <option className={styles.filterGenresOption}>All</option>
           {genres.map((genre) => (
             <option
               className={styles.filterGenresOption}
@@ -54,10 +56,7 @@ const FilterGenres = ({ setPage }) => {
           ))}
         </select>
         <span className={styles.filterGenresSpan}>
-          <button
-            className={styles.filterGenresButton}
-            onClick={handleOnClick}
-          >
+          <button className={styles.filterGenresButton} onClick={handleOnClick}>
             x
           </button>
         </span>
@@ -65,7 +64,7 @@ const FilterGenres = ({ setPage }) => {
         {filters.length > 0 &&
           filters.map((filter) => (
             <span className={styles.filterGenresSpan} key={filter}>
-              · {filter} <br />
+              - {filter} <br />
             </span>
           ))}
       </label>
