@@ -35,11 +35,6 @@ const FormPage = () => {
   });
   const formLoading = useSelector((state) => state.formLoading);
 
-  
- 
-
-
-
   useEffect(() => {
     dispatch(getGenres());
     dispatch(getAllPlatforms());
@@ -51,7 +46,7 @@ const FormPage = () => {
     setError(validateForm({ ...form, [name]: value }));
   };
 
-  // Define una función que maneja los cambios en el arreglo de géneros en el formulario
+  //! Define una función que maneja los cambios en el arreglo de géneros en el formulario
   const handleGenres = (e) => {
     // Previene el comportamiento por defecto del evento
     e.preventDefault();
@@ -64,7 +59,6 @@ const FormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     dispatch(postVideogame(form));
     history.push("/home");
   };

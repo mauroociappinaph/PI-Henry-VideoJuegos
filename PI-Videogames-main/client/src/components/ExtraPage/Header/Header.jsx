@@ -2,8 +2,6 @@ import React from "react";
 import styles from "./Header.module.css";
 import NavBar from "../NavBar/NavBar";
 
-// agregar un paginado para la lista de juegos
-
 const Header = () => {
   return (
     <Header className={styles.header}>
