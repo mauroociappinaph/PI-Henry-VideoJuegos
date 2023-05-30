@@ -1,31 +1,32 @@
-
-
+/* Estilos para el encabezado */
 .header {
-  background-image: url('../../../../asset/sigmund-By-tZImt0Ms-unsplash.jpg');
+  /* Imagen de fondo */
+  background-image: url("../../../../asset/sigmund-By-tZImt0Ms-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+
+  /* Espaciado y alineación */
   padding: 20px;
   text-align: center;
   width: 100%;
 }
 
+/* Estilos para el título */
 .title {
   font-size: 4rem;
   color: #ffffff;
 }
 
-
+/* Estilos para pantallas pequeñas (hasta 768px) */
 @media screen and (max-width: 768px) {
   .title {
     font-size: 3rem;
   }
 }
 
+/* Estilos para pantallas aún más pequeñas (hasta 480px) */
 @media screen and (max-width: 480px) {
   .title {
     font-size: 2rem;
   }
 }
-
-
-

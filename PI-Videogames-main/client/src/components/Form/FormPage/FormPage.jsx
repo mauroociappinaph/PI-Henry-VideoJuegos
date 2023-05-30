@@ -35,23 +35,27 @@ const FormPage = () => {
   });
   const formLoading = useSelector((state) => state.formLoading);
 
+  
+ 
+
+
+
   useEffect(() => {
     dispatch(getGenres());
     dispatch(getAllPlatforms());
   }, [dispatch]);
 
   const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setForm({
-      ...form,
-      [name]: value,
-    });
-    setError(validateForm({...form , [name]:value}))
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+    setError(validateForm({ ...form, [name]: value }));
   };
 
+  // Define una función que maneja los cambios en el arreglo de géneros en el formulario
   const handleGenres = (e) => {
+    // Previene el comportamiento por defecto del evento
     e.preventDefault();
+    // Actualiza el estado del formulario creando un nuevo objeto con todas las propiedades del estado actual del formulario, excepto por el arreglo de géneros que se reemplaza con un nuevo arreglo que contiene todos los géneros existentes más el nuevo género del evento.
     setForm({
       ...form,
       genres: [...form.genres, e.target.value],
@@ -60,47 +64,47 @@ const FormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-      dispatch(postVideogame(form));
-      history.push("/home");
-    
+
+    dispatch(postVideogame(form));
+    history.push("/home");
   };
 
   const validateForm = () => {
-    let regexImg =/.(gif|jpeg|jpg|png)$/i;
-    let rexNum = /^([0-9])*$/;
-    let errors = {};
+    const { name, background_image, description, rating } = form;
+    const errors = {};
 
-  if (!form.name)
-    errors.name = "Username must not be empty";
-  else if(form.name.length >= 15) errors.name= "No puede tener mas de 15 caracteres"
-  else if (form.name !== form.name.toLowerCase())
-    errors.name = "Cannot have capital letters";
+    if (!name) {
+      errors.name = "Username must not be empty";
+    } else if (name.length >= 15) {
+      errors.name = "No puede tener mas de 15 caracteres";
+    } else if (name !== name.toLowerCase()) {
+      errors.name = "Cannot have capital letters";
+    }
 
-  if (form.background_image) {
-    if (!regexImg.test(form.background_image))
+    if (background_image && !/.(gif|jpeg|jpg|png)$/i.test(background_image)) {
       errors.background_image = "It has to be an Image Link";
-  }
+    }
 
-  if(form.description){
-    if(form.description.length >= 15) errors.description = "No puede tener mas de 15 caracteres"
-  }
+    if (description && description.length >= 15) {
+      errors.description = "No puede tener mas de 15 caracteres";
+    }
 
-  if(form.rating){
-    if(!rexNum.test(form.rating)) errors.rating= "Only numbers"
-    if(form.rating <= 0) errors.rating = "cannot be less than or equal to 0"
+    if (rating) {
+      const num = parseInt(rating, 10);
+      if (isNaN(num) || num <= 0) {
+        errors.rating = "Only positive numbers";
+      }
+    }
 
-  } 
-    if(form.rating){
-    if(!rexNum.test(form.rating)) errors.rating= "Only numbers"
-    if(form.rating <= 0) errors.rating = "cannot be less than or equal to 0"
+    if (form.genres.length === 0) {
+      errors.genres = "You must select at least one genre";
+    }
 
-  } 
-
-  return errors;
+    if (!form.platforms) {
+      errors.platforms = "You must select at least one platform";
+    }
+    return errors;
   };
-
-  
 
   return (
     <div className={styles.containerForm}>
@@ -117,6 +121,7 @@ const FormPage = () => {
                 <div className={styles.gridItem}>
                   <label className={styles.label}>NAME:</label>
                 </div>
+
                 <div className={styles.gridItem}>
                   <input
                     type="text"
