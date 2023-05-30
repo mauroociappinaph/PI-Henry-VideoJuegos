@@ -11,15 +11,9 @@ import {
 } from "./actions-type";
 import axios from "axios";
 axios.defaults.baseURL="http://localhost:3001"
-/*const api = axios.create({
-  baseURL: "https://videogameapi.onrender.com", // "http://localhost:3001",
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
-}); */
 
-export const getAllVideogames = () => {
+
+export const  getAllVideogames = () => {
   return async function (dispatch) {
     const json = await axios.get("/videogames");
     const data = json.data;
@@ -29,6 +23,9 @@ export const getAllVideogames = () => {
     });
   };
 };
+
+
+
 
 export const findVideogame = (payload) => {
   return async function (dispatch) {
@@ -49,6 +46,8 @@ export const videogameDetail = (id) => {
     return dispatch({ type: VIDEOGAME_DETAIL, payload: data });
   };
 };
+
+
 
 export const getGenres = () => {
   return async function (dispatch) {
@@ -111,3 +110,5 @@ export const orderByRating = (order) => {
     return dispatch({ type: ORDER_BY_RATING, payload: order });
   };
 };
+
+

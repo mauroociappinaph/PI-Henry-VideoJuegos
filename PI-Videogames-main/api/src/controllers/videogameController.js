@@ -44,6 +44,8 @@ const getAllVideogames = async () => {
       ),
       platforms: dbVideogame.dataValues.platforms,
       rating: dbVideogame.dataValues.rating,
+
+      create: true,
     };
     return dbGame;
   });
@@ -88,3 +90,9 @@ module.exports = {
   getVideogameById,
   getPlatforms,
 };
+
+
+
+
+
+

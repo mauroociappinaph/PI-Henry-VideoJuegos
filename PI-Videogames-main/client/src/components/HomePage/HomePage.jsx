@@ -23,12 +23,14 @@ const HomePage = () => {
   const [orderName, setOrderName] = useState("");
   const [orderRating, setOrderRating] = useState("");
   const [page, setPage] = useState(1);
+
+  
   const videogamesPerPage = 15;
   const firstIndex = (page - 1) * videogamesPerPage;
   const lastIndex = page * videogamesPerPage;
-  const pageVideogames = videogamesAux.slice(firstIndex, lastIndex);
-  const pagesNumber = Math.ceil(videogamesAux.length / videogamesPerPage);
-  const pages = [...Array(pagesNumber).keys()].map((i) => i + 1);
+  const pageVideogames = videogamesAux.slice(firstIndex, lastIndex); // Extrae juegos página actual
+  const pagesNumber = Math.ceil(videogamesAux.length / videogamesPerPage); //Calcula el total de las páginas necesarias
+  const pages = [...Array(pagesNumber).keys()].map((i) => i + 1); // Calcula número de páginas reales
 
   useEffect(() => {
     if (videogames.length === 0) {
@@ -45,6 +47,7 @@ const HomePage = () => {
     }
   }, [dispatch, videogames]);
 
+ 
   const handlePageChange = (newPage, paging) => {
     if (newPage) {
       setPage(newPage);
@@ -170,6 +173,7 @@ const HomePage = () => {
                   name={game.name}
                   background_image={game.background_image}
                   genres={game.genres}
+                  rating={game.rating}
                 />
               ))}
             </div>

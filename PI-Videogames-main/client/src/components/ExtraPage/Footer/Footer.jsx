@@ -7,8 +7,8 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.leftSection}>
-          <h3 className={styles.heading}>ABOUT</h3>
-          <p className={styles.description}>Mr.Mauroo , Comunication & FullStack Developer? </p>
+          <h3 className={styles.heading}>ABOUT ME</h3>
+          <p className={styles.description}>Mr.Mauroo , Comunication & FullStack Developer </p>
         </div>
         <div className={styles.middleSection}>
           <h3 className={styles.heading}>Enlaces Útiles</h3>
@@ -17,13 +17,10 @@ const Footer = () => {
               <Link to="/">Inicio</Link>
             </li>
             <li>
-              <Link to="/home">Home </Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <Link to="/create">Create Videogame</Link>
-            </li>
-            <li>
-              <a href="/contacto">Contacto</a>
             </li>
           </ul>
         </div>
@@ -42,23 +39,6 @@ const Footer = () => {
         <p className={styles.copyRight}>
           &copy; 2023 Sitio Web. Todos los derechos reservados.
         </p>
-        <ul className={styles.socialMediaList}>
-          <li>
-            <a href="https://facebook.com">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com">
-              <i className="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://instagram.com">
-              <i className="fab fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
       </div>
     </footer>
   );

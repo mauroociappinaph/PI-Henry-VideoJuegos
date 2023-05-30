@@ -14,9 +14,14 @@ const VideogameDetail = () => {
   const [showGenres, setShowGenres] = useState(false);
   const [showPlatforms, setShowPlatforms] = useState(false);
 
+  
   useEffect(() => {
     dispatch(videogameDetail(params.id));
   }, [dispatch, params.id]);
+  
+  useEffect(() => {
+   console.log(detail)
+  }, [detail]);
 
   const toggleGenres = () => {
     setShowGenres(!showGenres);

@@ -24,7 +24,7 @@ const FilterOrigin = ({ setPage }) => {
         onChange={(e) => handleOnSelect(e)}
         className={styles.filterOriginSelect}
       >
-        <option  value="select">All</option>
+        <option  value="All">All</option>
         <option  value="false">Api</option>
         <option  value="true">Database</option>
       </select>

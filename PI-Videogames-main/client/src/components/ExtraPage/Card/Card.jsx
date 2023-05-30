@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styles from "./Card.module.css";
 
-const Card = ({ id, name, background_image, genre }) => {
+const Card = ({ id, name, background_image, genres , rating }) => {
   const [showInfo, setShowInfo] = useState(false);
   const history = useHistory();
 
@@ -28,13 +28,16 @@ const Card = ({ id, name, background_image, genre }) => {
          {showInfo && (
           <div className={styles.cardInformation}>
             <h2 className={styles.cardH2}>{name}</h2>
-            <p className={styles.cardP}>{genre}</p>
+            <p className={styles.cardP}>{genres}</p>
+            <p className={styles.cardP}>{rating}</p>
           </div>
         )}
       </div>
       <div className={styles.cardInformation}>
             <h2 className={styles.cardH2}>{name}</h2>
-            <p className={styles.cardP}>{genre}</p>
+            <h4 className={styles.cardH4}>{genres}</h4>
+            <h4 className={styles.cardH4}>{rating}</h4>
+
           </div>
     </div>
   );

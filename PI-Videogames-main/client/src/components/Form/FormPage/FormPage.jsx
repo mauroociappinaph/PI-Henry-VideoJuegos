@@ -47,6 +47,7 @@ const FormPage = () => {
       ...form,
       [name]: value,
     });
+    setError(validateForm({...form , [name]:value}))
   };
 
   const handleGenres = (e) => {
@@ -59,39 +60,47 @@ const FormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
+    
       dispatch(postVideogame(form));
       history.push("/home");
-    }
+    
   };
 
   const validateForm = () => {
-    let valid = true;
-    const errors = {};
+    let regexImg =/.(gif|jpeg|jpg|png)$/i;
+    let rexNum = /^([0-9])*$/;
+    let errors = {};
 
-    if (!form.name || form.name.trim() === "") {
-      valid = false;
-      errors.name = "El nombre es requerido";
-    }
+  if (!form.name)
+    errors.name = "Username must not be empty";
+  else if(form.name.length >= 15) errors.name= "No puede tener mas de 15 caracteres"
+  else if (form.name !== form.name.toLowerCase())
+    errors.name = "Cannot have capital letters";
 
-    if (!form.image || form.image.trim() === "") {
-      valid = false;
-      errors.image = "La imagen es requerida";
-    }
+  if (form.background_image) {
+    if (!regexImg.test(form.background_image))
+      errors.background_image = "It has to be an Image Link";
+  }
 
-    if (!form.released || form.released.trim() === "") {
-      valid = false;
-      errors.released = "La fecha de lanzamiento es requerida";
-    }
+  if(form.description){
+    if(form.description.length >= 15) errors.description = "No puede tener mas de 15 caracteres"
+  }
 
-    if (form.rating < 1 || form.rating > 5) {
-      valid = false;
-      errors.rating = "El rating debe estar entre 1 y 5";
-    }
+  if(form.rating){
+    if(!rexNum.test(form.rating)) errors.rating= "Only numbers"
+    if(form.rating <= 0) errors.rating = "cannot be less than or equal to 0"
 
-    setError(errors);
-    return valid;
+  } 
+    if(form.rating){
+    if(!rexNum.test(form.rating)) errors.rating= "Only numbers"
+    if(form.rating <= 0) errors.rating = "cannot be less than or equal to 0"
+
+  } 
+
+  return errors;
   };
+
+  
 
   return (
     <div className={styles.containerForm}>
@@ -127,8 +136,8 @@ const FormPage = () => {
                 <div className={styles.gridItem}>
                   <input
                     type="text"
-                    name="image"
-                    value={form.image}
+                    name="background_image"
+                    value={form.background_image}
                     onChange={handleChange}
                     className={styles.input}
                   />

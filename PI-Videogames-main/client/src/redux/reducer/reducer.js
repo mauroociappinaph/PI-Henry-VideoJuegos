@@ -67,15 +67,15 @@ const reducer = (state = initialState, action) => {
         ...state,
         videogamesAux: filterGenresVideogames,
       };
-    case FILTER_BY_ORIGIN:
-      const filterVideogame = videogamesAux.filter(
-        (game) => game.create && action.payload && game.create.toString() === action.payload.toString()
-      );
+      case FILTER_BY_ORIGIN:
+        console.log(action.payload);
+        const filterVideogame = state.videogamesAux.filter((elem) => elem.create.toString() === action.payload.toString())
+  
+        return {
+          ...state,
+          videogamesAux: action.payload === "All" ?  state.videogames :filterVideogame,
+        };
       
-      return {
-        ...state,
-        videogamesAux: filterVideogame,
-      };
     case ORDER_BY_NAME:
       const orderNameVideogames = videogamesAux.sort((gameA, gameB) => {
         if (action.payload === "asc") {
