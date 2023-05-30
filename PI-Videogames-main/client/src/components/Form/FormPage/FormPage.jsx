@@ -57,13 +57,16 @@ const FormPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(postVideogame(form));
-    history.push("/home");
-  };
+  
+ // ! Maneja la presentación del formulario  enviando una acción post.
+const handleSubmit = (e) => {
+  e.preventDefault(); 
+  dispatch(postVideogame(form)); 
+  history.push("/home"); 
+};
 
-  const validateForm = () => {
+//! Validaciones del Formulario
+const validateForm = () => {
     const { name, background_image, description, rating } = form;
     const errors = {};
 
