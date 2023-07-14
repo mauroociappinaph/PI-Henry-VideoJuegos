@@ -10,7 +10,7 @@ import {
   ORDER_BY_RATING,
 } from "./actions-type";
 import axios from "axios";
-axios.defaults.baseURL="http://localhost:3001"
+axios.defaults.baseURL="http://localhost:3002"
 
 
 export const  getAllVideogames = () => {
