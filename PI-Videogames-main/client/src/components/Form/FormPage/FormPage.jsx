@@ -71,7 +71,7 @@ const validateForm = () => {
     const errors = {};
 
     if (!name) {
-      errors.name = "Username must not be empty";
+      errors.name = "El nombre no puede estar vació";
     } else if (name.length >= 15) {
       errors.name = "No puede tener mas de 15 caracteres";
     } else if (name !== name.toLowerCase()) {
